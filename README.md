@@ -16,7 +16,13 @@ Creates an editable JSON tree structure.
 
 ## Tests
 
+### Standard Style & Unit Tests
+
 `npm test`
+
+### Unit Tests & Coverage
+
+`npm run cover`
 
 ## Methods
 
