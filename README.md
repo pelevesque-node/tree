@@ -8,7 +8,7 @@ Creates an editable JSON tree structure.
 
 ## Node Repository
 
-[https://www.npmjs.com/package/@pelevesque/tree](https://www.npmjs.com/package/@pelevesque/tree)
+https://www.npmjs.com/package/@pelevesque/tree
 
 ## Installation
 
