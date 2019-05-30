@@ -38,7 +38,10 @@ https://www.npmjs.com/package/@pelevesque/tree
 
 ### Introduction
 
-Every node in a tree has three properties: `id`, `parentId`, and `children`. `ids` and `parentIds` are generated and handled automatically. They are reserved properties. `children` is an array of child nodes. You can also add your own custom properties to nodes.
+Every node in a tree has three properties: `id`, `parentId`, and `children`.
+`ids` and `parentIds` are generated and handled automatically.
+They are reserved properties. `children` is an array of child nodes.
+You can also add your own custom properties to nodes.
 
 Below is an example of a node without children:
 
@@ -52,7 +55,8 @@ Below is an example of a node without children:
 
 ### Initialization
 
-When initializing a tree, a `root` node will be created. It has an `id = 0` and a `parentId = null`. You can also add custom properties upon initialization.
+When initializing a tree, a `root` node will be created. It has an `id = 0`
+and a `parentId = null`. You can also add custom properties upon initialization.
 
 format: `new Tree(props)`
 
@@ -113,7 +117,9 @@ tree.ini({
 
 ### Adding Nodes
 
-To add a node, you must provide a `parentId` indicating where to add it. Providing custom properties is optional. The `id` of the newly added node is returned so that it can be used to add children.
+To add a node, you must provide a `parentId` indicating where to add it.
+Providing custom properties is optional. The `id` of the newly added node
+is returned so that it can be used to add children.
 
 format: `const id = tree.add(parentId, props)`
 
@@ -142,7 +148,8 @@ tree.del(5)
 
 ### Setting Node Custom Properties
 
-To set a node's custom properties, you must provide the node's `id` and one or many custom properties.
+To set a node's custom properties, you must provide the node's `id` and one or
+many custom properties.
 
 format: `tree.set(id, props)`
 
@@ -151,11 +158,13 @@ format: `tree.set(id, props)`
 tree.set(6, {"game" : "juno", "score" : 13})
 ```
 
-_Note: Setting custom properties does not overwrite previously set custom properties that use other keys. Only values with the same keys are overwritten._
+_Note: Setting custom properties does not overwrite previously set custom
+properties that use other keys. Only values with the same keys are overwritten._
 
 ### Getting a Custom Property from a Node
 
-To get a property value from a node, you must provide the node's `id` and the property's name.
+To get a property value from a node, you must provide the node's `id`
+and the property's name.
 
 format: `const prop = tree.get(id, prop)`
 
@@ -166,7 +175,10 @@ const game = tree.get(6, "game")
 
 ### Running a Callback Up the Tree
 
-`cup`, for callback + up, is used to run a callback upwards through the tree. It starts on a node and propagates to all the descendants of that node. If you don't provide a node `id` to start from, it will start from the root and propagate throughout the entire tree.
+`cup`, for callback + up, is used to run a callback upwards through the tree.
+It starts on a node and propagates to all the descendants of that node.
+If you don't provide a node `id` to start from, it will start from the
+root and propagate throughout the entire tree.
 
 format: `tree.cup(callback(node), id)`
 
@@ -187,7 +199,10 @@ tree.cup(function(node) {
 
 ### Running a Callback Down the Tree
 
-`cdn`, for callback + down _(dn are the outer letters of down and up upside down)_, is used to run a callback downwards through the tree. It starts on a node and runs through all the ancestors until it reaches the root. You must provide the node `id` to start from.
+`cdn`, for callback + down _(dn are the outer letters of down and up upside down)_,
+is used to run a callback downwards through the tree. It starts on a node
+and runs through all the ancestors until it reaches the root.
+You must provide the node `id` to start from.
 
 format: `tree.cdn(callback(node), id)`
 
