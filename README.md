@@ -225,6 +225,9 @@ tree.root
 
 ```js
 const tree = new Tree()
+```
+
+```js
 const A = tree.add(0)
 const B = tree.add(0)
 const C = tree.add(0)
