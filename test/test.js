@@ -4,7 +4,7 @@
 const expect = require('chai').expect
 const Tree = require('../index')
 
-describe('#tree', () => {
+describe('#all for tree', () => {
   describe('#constructor()', () => {
     it('should initialize without properties', () => {
       const expected = '{"id":0,"parentId":null,"children":[]}'
