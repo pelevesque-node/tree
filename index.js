@@ -11,7 +11,7 @@ Tree.prototype.ini = function (props) {
 
 Tree.prototype.add = function (parentId, props) {
   const node = this._makeNode(parentId, props)
-  let parent = this._getNode(parentId)
+  const parent = this._getNode(parentId)
   parent.children.push(node)
   return node.id
 }
@@ -85,9 +85,9 @@ Tree.prototype._makeId = function () {
 
 Tree.prototype._makeNode = function (parentId, props) {
   const node = {
-    'id': this._makeId(),
-    'parentId': parentId,
-    'children': []
+    id: this._makeId(),
+    parentId: parentId,
+    children: []
   }
   for (const prop in this._validateProps(props)) {
     node[prop] = props[prop]

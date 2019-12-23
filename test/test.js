@@ -16,14 +16,14 @@ describe('#tree', () => {
     it('should initialize with properties', () => {
       let expected = '{"id":0,"parentId":null,"children":[],'
       expected += '"friend":"jess","score":1}'
-      const tree = new Tree({ 'friend': 'jess', 'score': 1 })
+      const tree = new Tree({ friend: 'jess', score: 1 })
       const result = JSON.stringify(tree.root)
       expect(result).to.equal(expected)
     })
 
     it('should re-initialize without properties', () => {
       const expected = '{"id":0,"parentId":null,"children":[]}'
-      const tree = new Tree({ 'name': 'jill' })
+      const tree = new Tree({ name: 'jill' })
       const id1 = tree.add(0)
       const id2 = tree.add(id1)
       tree.add(id2)
@@ -35,11 +35,11 @@ describe('#tree', () => {
     it('should re-initialize with properties', () => {
       let expected = '{"id":0,"parentId":null,"children":[],'
       expected += '"friend":"jess","score":1}'
-      const tree = new Tree({ 'name': 'jill' })
+      const tree = new Tree({ name: 'jill' })
       const id1 = tree.add(0)
       const id2 = tree.add(id1)
       tree.add(id2)
-      tree.ini({ 'friend': 'jess', 'score': 1 })
+      tree.ini({ friend: 'jess', score: 1 })
       const result = JSON.stringify(tree.root)
       expect(result).to.equal(expected)
     })
@@ -66,7 +66,7 @@ describe('#tree', () => {
     it('should validate with properties', () => {
       const expected = '{"friend":"john"}'
       const tree = new Tree()
-      let result = tree._validateProps({ 'friend': 'john' })
+      let result = tree._validateProps({ friend: 'john' })
       expect(typeof result).to.equal('object')
       result = JSON.stringify(result)
       expect(result).to.equal(expected)
@@ -85,7 +85,7 @@ describe('#tree', () => {
     it('should make a node with properties', () => {
       const expected = '{"id":1,"parentId":1,"children":[],"friend":"jess"}'
       const tree = new Tree()
-      let result = tree._makeNode(1, { 'friend': 'jess' })
+      let result = tree._makeNode(1, { friend: 'jess' })
       result = JSON.stringify(result)
       expect(result).to.equal(expected)
     })
@@ -140,7 +140,7 @@ describe('#tree', () => {
       expected += '{"id":1,"parentId":0,"children":[],'
       expected += '"boss":"john","lover":"jill"}]}'
       const tree = new Tree()
-      tree.add(0, { 'boss': 'john', 'lover': 'jill' })
+      tree.add(0, { boss: 'john', lover: 'jill' })
       const result = JSON.stringify(tree.root)
       expect(result).to.equal(expected)
     })
@@ -164,9 +164,9 @@ describe('#tree', () => {
       expected += '{"id":2,"parentId":0,"children":[],"cousin":"john"},'
       expected += '{"id":3,"parentId":0,"children":[],"lover":"jenn"}]}'
       const tree = new Tree()
-      tree.add(0, { 'friend': 'jess' })
-      tree.add(0, { 'cousin': 'john' })
-      tree.add(0, { 'lover': 'jenn' })
+      tree.add(0, { friend: 'jess' })
+      tree.add(0, { cousin: 'john' })
+      tree.add(0, { lover: 'jenn' })
       const result = JSON.stringify(tree.root)
       expect(result).to.equal(expected)
     })
@@ -180,11 +180,11 @@ describe('#tree', () => {
       expected += '{"id":5,"parentId":4,"children":[],"name":"jade"}]}],'
       expected += '"name":"john"}]}'
       const tree = new Tree()
-      tree.add(0, { 'name': 'jane' })
+      tree.add(0, { name: 'jane' })
       tree.add(0)
-      let id = tree.add(0, { 'name': 'john' })
+      let id = tree.add(0, { name: 'john' })
       id = tree.add(id)
-      tree.add(id, { 'name': 'jade' })
+      tree.add(id, { name: 'jade' })
       const result = JSON.stringify(tree.root)
       expect(result).to.equal(expected)
     })
@@ -216,7 +216,7 @@ describe('#tree', () => {
     it('should set one property value on the root', () => {
       const expected = '{"id":0,"parentId":null,"children":[],"score":100}'
       const tree = new Tree()
-      tree.set(0, { 'score': 100 })
+      tree.set(0, { score: 100 })
       const result = JSON.stringify(tree.root)
       expect(result).to.equal(expected)
     })
@@ -225,7 +225,7 @@ describe('#tree', () => {
       let expected = '{"id":0,"parentId":null,"children":[],'
       expected += '"score":100,"friend":"jess","cousin":"john"}'
       const tree = new Tree()
-      tree.set(0, { 'score': 100, 'friend': 'jess', 'cousin': 'john' })
+      tree.set(0, { score: 100, friend: 'jess', cousin: 'john' })
       const result = JSON.stringify(tree.root)
       expect(result).to.equal(expected)
     })
@@ -235,7 +235,7 @@ describe('#tree', () => {
       expected += '{"id":1,"parentId":0,"children":[],"score":100}]}'
       const tree = new Tree()
       tree.add(0)
-      tree.set(1, { 'score': 100 })
+      tree.set(1, { score: 100 })
       const result = JSON.stringify(tree.root)
       expect(result).to.equal(expected)
     })
@@ -246,7 +246,7 @@ describe('#tree', () => {
       expected += '"score":100,"friend":"jess","cousin":"john"}]}'
       const tree = new Tree()
       tree.add(0)
-      tree.set(1, { 'score': 100, 'friend': 'jess', 'cousin': 'john' })
+      tree.set(1, { score: 100, friend: 'jess', cousin: 'john' })
       const result = JSON.stringify(tree.root)
       expect(result).to.equal(expected)
     })
@@ -255,7 +255,7 @@ describe('#tree', () => {
   describe('#get()', () => {
     it('should get a property value from the root', () => {
       const expected = 100
-      const tree = new Tree({ 'score': 100 })
+      const tree = new Tree({ score: 100 })
       const result = tree.get(0, 'score')
       expect(result).to.equal(expected)
     })
@@ -270,7 +270,7 @@ describe('#tree', () => {
     it('should get a property value from a node', () => {
       const expected = 100
       const tree = new Tree()
-      const id = tree.add(0, { 'score': 100 })
+      const id = tree.add(0, { score: 100 })
       const result = tree.get(id, 'score')
       expect(result).to.equal(expected)
     })

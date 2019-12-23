@@ -47,9 +47,9 @@ Below is an example of a node without children:
 
 ```js
 {
-    "id"       : 23,
-    "parentId" : 12,
-    "children" : []
+  id: 23,
+  parentId: 12,
+  children: []
 }
 ```
 
@@ -66,26 +66,26 @@ const tree = new Tree()
 
 // creates this tree (just a root)
 {
-    "id"       : 0,
-    "parentId" : null,
-    "children" : []
+  id: 0,
+  parentId: null,
+  children: []
 }
 ```
 
 ```js
 // initialize with custom properties
 const tree = new Tree({
-    "enemy" : "jack",
-    "lover" : "jill"
+  enemy: 'jack',
+  lover: 'jill'
 })
 
 // creates this tree (just a root)
 {
-   "id"       : 0,
-   "parentId" : null,
-   "children" : [],
-   "enemy"    : "jack",
-   "lover"    : "jill"
+  id: 0,
+  parentId: null,
+  children: [],
+  enemy: 'jack',
+  lover: 'jill'
 }
 ```
 
@@ -105,13 +105,13 @@ tree.ini()
 ```js
 // these are the same
 const tree = new Tree({
-    "enemy" : "jack",
-    "lover" : "jill"
+  enemy: 'jack',
+  lover: 'jill'
 })
 
 tree.ini({
-    "enemy" : "jack",
-    "lover" : "jill"
+  enemy: 'jack',
+  lover: 'jill'
 })
 ```
 
@@ -131,7 +131,7 @@ const id = tree.add(0)
 const id = tree.add(3)
 
 // add a node with a custom property on parentId 5
-const id = tree.add(5, {"boss" : "jess"})
+const id = tree.add(5, {boss: 'jess'})
 ```
 
 ### Deleting Nodes
@@ -155,7 +155,7 @@ format: `tree.set(id, props)`
 
 ```js
 // set custom properties on node 6
-tree.set(6, {"game" : "juno", "score" : 13})
+tree.set(6, {game: 'juno', score: 13})
 ```
 
 _Note: Setting custom properties does not overwrite previously set custom
@@ -170,7 +170,7 @@ format: `const prop = tree.get(id, prop)`
 
 ```js
 // get the value of the game property on node 6
-const game = tree.get(6, "game")
+const game = tree.get(6, 'game')
 ```
 
 ### Running a Callback Up the Tree
@@ -231,15 +231,15 @@ const tree = new Tree()
 const A = tree.add(0)
 const B = tree.add(0)
 const C = tree.add(0)
-const D = tree.add(C, {"boss" : "john"})
+const D = tree.add(C, {boss: 'john'})
 tree.cup(function(node) {
-    node.lover = "jess"
+    node.lover = 'jess'
 })
-tree.set(A, {"friend" : "jill"})
-tree.set(B, {"friend" : "jake"})
+tree.set(A, {friend: 'jill'})
+tree.set(B, {friend: 'jake'})
 tree.cdn(function(node) {
-    node.enemy = "joss"
+    node.enemy = 'joss'
 }, C)
-const enemy = tree.get(0, "enemy")
+const enemy = tree.get(0, 'enemy')
 tree.del(3)
 ```
