@@ -4,8 +4,10 @@
   "description": "Creates an editable JSON tree structure.",
   "main": "index.js",
   "scripts": {
-    "test": "standard && mocha --reporter spec",
-    "cover": "node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha -- -R spec test/*"
+    "test": "standard && mocha --reporter spec && node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha -- -R spec test/*",
+    "cover": "node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha -- -R spec test/*",
+    "standard": "standard",
+    "unit": "mocha --reporter spec"
   },
   "engines": {
     "node": ">=9.0.0"
